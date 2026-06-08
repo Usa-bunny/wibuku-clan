@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 
 export const fontBody = Noto_Sans_JP({
@@ -32,7 +32,9 @@ export default function RootLayout({
       className={`${fontBody.variable} ${fontHeading.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-layer" suppressHydrationWarning>{children}</body>
+      <body className="bg-layer" suppressHydrationWarning>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
+      </body>
     </html>
   );
 }
