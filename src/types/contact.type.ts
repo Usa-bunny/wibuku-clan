@@ -1,8 +1,7 @@
 export interface ContactType {
-  name: string;
+  title: string;
+  subtitle: string;
   icon: string;
   link: string;
-  username: string;
-  color: string;
 }
  

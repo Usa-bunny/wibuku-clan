@@ -32,7 +32,7 @@ export default function RootLayout({
       className={`${fontBody.variable} ${fontHeading.variable}`}
       suppressHydrationWarning
     >
-      <body suppressHydrationWarning>{children}</body>
+      <body className="bg-layer" suppressHydrationWarning>{children}</body>
     </html>
   );
 }

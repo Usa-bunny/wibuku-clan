@@ -12,8 +12,12 @@ export default function HomePage() {
         logo="Wibu Nolep"
         navLinks={[
           {
-            label: "Events",
-            href: "/event",
+            label: "Anime",
+            href: "/anime",
+          },
+          {
+            label: "Members",
+            href: "/members",
           },
         ]}
       />

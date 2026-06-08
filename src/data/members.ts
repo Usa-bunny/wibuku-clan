@@ -2,28 +2,23 @@ import { MembersType } from "@/types/member.type";
 
 export const MembersData: MembersType[] = [
   {
-    username: "kai",
+    username: "kaii",
     role: "leader",
-    contact: "https://wa.me/6285126088379/",
+    contact: "https://wa.me/6282312713380/",
+  },
+  {
+    username: "billy",
+    role: "vice leader",
+    contact: "https://wa.me/6282119181501/",
+  },
+  {
+    username: "lynie",
+    role: "vice leader",
+    contact: "https://wa.me/6281275214641/",
   },
   {
     username: "usagi",
-    role: "vice leader",
-    contact: "https://wa.me/6285126088379/",
-  },
-  {
-    username: "",
     role: "admiral",
-    contact: "",
-  },
-  {
-    username: "",
-    role: "officer",
-    contact: "",
-  },
-  {
-    username: "",
-    role: "member",
-    contact: "",
-  },
+    contact: "https://wa.me/6285126088379/",
+  }
 ];

@@ -63,8 +63,8 @@ body::before {
   position: absolute;
   inset: 0;
   background-image: linear-gradient(to bottom, #E5E3DD44, #E5E3DD55),url("/bg.png");
-  background-repeat: repeat-y;
-  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-size: cover;
   opacity: 0.4;
   z-index: -1;
   pointer-events: none;

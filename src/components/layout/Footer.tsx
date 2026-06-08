@@ -1,17 +1,14 @@
-import Motion from "../helper/Motion";
+import Motion from "@/components/helper/Motion";
 import { ContactData } from "@/data/contact";
 
 export default function Footer() {
   return (
     <footer className="bg-(--bg) border-t border-dyna py-16">
       <div className="mx-auto max-w-7xl px-4">
-
         <div className="mx-auto max-w-2xl text-center">
-
-          {/* SOCIAL ICONS */}
           <div className="mb-8 flex flex-wrap justify-center gap-3">
             {ContactData.slice(0, 5).map((item, index) => (
-              <Motion key={item.name ?? index} delay={index * 0.12}>
+              <Motion key={index} delay={index * 0.12}>
                 <a
                   href={item.link}
                   target="_blank"
@@ -24,14 +21,14 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* COPYRIGHT */}
           <p className="text-sm opacity-70">
             <i className="bi bi-c-circle mr-1" />
-            2026 make by <a href="https://usa-portofolio.vercel.app">@usagi</a> 
+            2026 make by <a href="https://usa-portofolio.vercel.app">@usagi</a>
           </p>
-
+          <p className="text-sm">
+            if you want to make website like this contact me <a href="https://wa.me/6285126088379?text=Hello%2C%20I%20hope%20you%20are%20doing%20well.%0A%0AI%20am%20interested%20in%20creating%20a%20website%20and%20would%20like%20to%20discuss%20the%20possibility%20of%20working%20with%20you.%0A%0APlease%20let%20me%20know%20your%20availability%20and%20the%20next%20steps.%20Thank%20you.">WhatsApp</a>
+          </p>
         </div>
-
       </div>
     </footer>
   );
