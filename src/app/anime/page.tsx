@@ -27,9 +27,9 @@ export default function AnimePage() {
       </div>
     );
   }
-  
+
   return (
-    <main className="max-w-6xl mx-auto px-4 my-20">
+    <main className="max-w-6xl mx-auto px-4 pt-30 mb-16">
       <div className="card-torii overflow-hidden">
         <div className="grid lg:grid-cols-[300px_1fr] gap-6 p-6">
           <div>
