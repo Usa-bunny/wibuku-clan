@@ -18,12 +18,7 @@ export const MembersData: MembersType[] = [
   },
   {
     username: "usagi",
-    role: "vice leader",
-    contact: "https://wa.me/6285126088379/",
-  },
-  {
-    username: "billy",
     role: "admiral",
     contact: "https://wa.me/6285126088379/",
-  }
+  },
 ];
