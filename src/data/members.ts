@@ -12,7 +12,7 @@ export const MembersData: MembersType[] = [
     contact: "https://wa.me/6285126088379/",
   },
   {
-    username: "",
+    username: "billy",
     role: "admiral",
     contact: "",
   },
