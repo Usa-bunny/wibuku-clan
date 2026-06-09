@@ -23,10 +23,12 @@ export default function Footer() {
 
           <p className="text-sm opacity-70">
             <i className="bi bi-c-circle mr-1" />
-            2026 make by <a href="https://usa-portofolio.vercel.app">@usagi</a>
+            <a href="https://usa-portofolio.vercel.app">2026 make by @usagi</a>
           </p>
           <p className="text-sm">
-            if you want to make website like this contact me <a href="https://wa.me/6285126088379?text=Hello%2C%20I%20hope%20you%20are%20doing%20well.%0A%0AI%20am%20interested%20in%20creating%20a%20website%20and%20would%20like%20to%20discuss%20the%20possibility%20of%20working%20with%20you.%0A%0APlease%20let%20me%20know%20your%20availability%20and%20the%20next%20steps.%20Thank%20you.">WhatsApp</a>
+            <a href="https://wa.me/6285126088379?text=Hello%2C%20I%20hope%20you%20are%20doing%20well.%0A%0AI%20am%20interested%20in%20creating%20a%20website%20and%20would%20like%20to%20discuss%20the%20possibility%20of%20working%20with%20you.%0A%0APlease%20let%20me%20know%20your%20availability%20and%20the%20next%20steps.%20Thank%20you.">
+              if you want to make website like this contact me in WhatsApp
+            </a>
           </p>
         </div>
       </div>

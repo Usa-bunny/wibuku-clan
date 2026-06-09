@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Anime } from "@/types/anime.type";
+import Link from "next/link";
 
 export default function AnimeCard({ anime }: { anime: Anime }) {
   return (
@@ -63,15 +64,16 @@ export default function AnimeCard({ anime }: { anime: Anime }) {
         </p>
 
         <div className="flex gap-2 pt-2">
-          <a
-            href={anime.url}
-            target="_blank"
+          <Link
+            href={`/anime/${anime.mal_id}`}
             className="btn-torii flex-1 text-center"
           >
+            Details
+          </Link>
+
+          <a href={anime.url} target="_blank" className="btn-torii-outline">
             View
           </a>
-
-          <button className="btn-torii-outline">Details</button>
         </div>
       </div>
     </div>

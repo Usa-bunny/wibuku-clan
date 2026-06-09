@@ -3,11 +3,11 @@
 import { MembersType } from "@/types/member.type";
 
 const roleColor = {
-  leader: "bg-[#792CA2] text-[#FFA6FB]",
-  "vice leader": "bg-[#547792] text-[#BED4CB]",
-  admiral: "bg-[#FDEB9E] text-[#C44A3A]",
-  officer: "bg-[#2C5EAD] text-[#39B1D1]",
-  member: "bg-[#2B5748]/20 text-[#2B5748]",
+  leader: "bg-[#4A154B] text-[#FFD700] border border-[#FFD700]/30 font-bold",
+  "vice leader": "bg-[#008080] text-[#E0FFF6] border border-[#00A3A3]/20",
+  admiral: "bg-[#C2412D] text-[#FFEBE7] border border-[#8F2C1D]/40",
+  officer: "bg-[#1E3A8A] text-[#93C5FD] border border-[#2563EB]/30",
+  member: "bg-(--card) text-(--muted) border border-(--outline)",
 };
 
 export default function MemberCard({ member }: { member: MembersType }) {

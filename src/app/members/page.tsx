@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Motion from "@/components/helper/Motion";
 import { MembersData } from "@/data/members";
 import MemberCard from "@/components/ui/MemberCard";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 const rolePriority: Record<string, number> = {
   leader: 1,
@@ -42,8 +43,18 @@ export default function MemberPage() {
   return (
     <section id="members" className="min-h-screen pt-20 pb-16">
       <div className="mx-auto w-full max-w-7xl px-4 py-16">
+        <Breadcrumbs
+          items={[
+            {
+              label: "Home",
+              href: "/",
+              icon: "house",
+            },
+            { label: "Members", href: "/members" },
+          ]}
+        />
         <Motion animation="fadeUp">
-          <h3 className="mb-2 text-3xl font-bold">Members</h3>
+          <h3 className="mb-2 mt-4 text-3xl font-bold">Members</h3>
         </Motion>
 
         <Motion animation="fadeUp" delay={0.2}>

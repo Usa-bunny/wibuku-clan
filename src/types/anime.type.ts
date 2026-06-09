@@ -17,7 +17,7 @@ export interface Anime {
   title_synonyms: string[];
 
   type: string | null;
-  source: string | null;
+  source: string | null; 
 
   episodes: number | null;
   status: string | null;

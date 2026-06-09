@@ -1,147 +1,196 @@
 "use client";
 
-import { getRandomAnime } from "@/data/Anime";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useMemo } from "react";
+
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
+import AnimeCard from "@/components/ui/AnimeCard";
+import { getAnime } from "@/dataservices/Anime";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+
 export default function AnimePage() {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["RandomAnime"],
-    queryFn: getRandomAnime,
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const query = searchParams.get("q") ?? "";
+  const page = Number(searchParams.get("page") ?? "1");
+
+  const type = searchParams.get("type") ?? "";
+  const status = searchParams.get("status") ?? "";
+  const rating = searchParams.get("rating") ?? "";
+
+  const params = useMemo(
+    () => ({
+      q: query || undefined,
+      page,
+      limit: 24,
+
+      type: type || undefined,
+      status: status || undefined,
+      rating: rating || undefined,
+
+      sfw: true,
+    }),
+    [query, page, type, status, rating],
+  );
+
+  const {
+    data: anime = [],
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["Anime", params],
+    queryFn: () => getAnime(params),
     placeholderData: keepPreviousData,
   });
 
-  const anime = data?.data;
+  const updateParams = (
+    values: Record<string, string | number | undefined>,
+  ) => {
+    const current = new URLSearchParams(searchParams.toString());
 
-  if (isLoading) {
-    return (
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="card-torii h-125 animate-pulse" />
-      </div>
-    );
-  }
+    Object.entries(values).forEach(([key, value]) => {
+      if (value === undefined || value === "" || value === null) {
+        current.delete(key);
+      } else {
+        current.set(key, String(value));
+      }
+    });
 
-  if (isError || !anime) {
-    return (
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="card-torii p-6">Failed to load anime.</div>
-      </div>
-    );
-  }
+    router.push(`/anime?${current.toString()}`);
+  };
 
   return (
-    <main className="max-w-6xl mx-auto px-4 pt-30 mb-16">
-      <div className="card-torii overflow-hidden">
-        <div className="grid lg:grid-cols-[300px_1fr] gap-6 p-6">
-          <div>
-            <img
-              src={anime.images.webp.large_image_url}
-              alt={anime.title}
-              width={400}
-              height={600}
-              className="w-full rounded-xl object-cover"
-            />
-          </div>
-
-          <div className="space-y-5">
-            <div>
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className="badge-torii">{anime.type}</span>
-
-                {anime.score && (
-                  <span className="badge-torii">⭐ {anime.score}</span>
-                )}
-
-                {anime.year && (
-                  <span className="badge-torii">{anime.year}</span>
-                )}
-              </div>
-
-              <h1 className="text-4xl font-bold">{anime.title}</h1>
-
-              {anime.title_japanese && (
-                <p className="mt-2">{anime.title_japanese}</p>
-              )}
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="list-torii">
-                <div>
-                  <p>Episodes</p>
-                  <h3>{anime.episodes}</h3>
-                </div>
-              </div>
-
-              <div className="list-torii">
-                <div>
-                  <p>Status</p>
-                  <h3>{anime.status}</h3>
-                </div>
-              </div>
-
-              <div className="list-torii">
-                <div>
-                  <p>Source</p>
-                  <h3>{anime.source}</h3>
-                </div>
-              </div>
-
-              <div className="list-torii">
-                <div>
-                  <p>Duration</p>
-                  <h3>{anime.duration}</h3>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-semibold mb-3">Genres</h2>
-
-              <div className="flex flex-wrap gap-2">
-                {anime.genres.map((genre) => (
-                  <span key={genre.mal_id} className="badge-torii">
-                    {genre.name}
-                  </span>
-                ))}
-
-                {anime.themes.map((theme) => (
-                  <span key={theme.mal_id} className="badge-torii">
-                    {theme.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-semibold mb-3">Synopsis</h2>
-
-              <p>{anime.synopsis}</p>
-            </div>
-
-            {anime.studios.length > 0 && (
-              <div>
-                <h2 className="text-xl font-semibold mb-3">Studio</h2>
-
-                <div className="flex flex-wrap gap-2">
-                  {anime.studios.map((studio) => (
-                    <span key={studio.mal_id} className="badge-torii">
-                      {studio.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <a
-              href={anime.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-torii"
-            >
-              View on MyAnimeList
-            </a>
-          </div>
+    <>
+      {isLoading ? (
+        <div className="max-w-7xl mx-auto px-4 pt-30">
+          <div className="card-torii h-125 animate-pulse" />
         </div>
-      </div>
-    </main>
+      ) : isError || !anime ? (
+        <div className="max-w-7xl mx-auto px-4 pt-30">
+          <div className="card-torii p-6">Failed to load anime.</div>
+        </div>
+      ) : (
+        <main className="max-w-7xl mx-auto px-4 pt-30 pb-20">
+          <Breadcrumbs
+            items={[
+              {
+                label: "Home",
+                href: "/",
+                icon: "house",
+              },
+              { label: "Anime", href: "/anime" },
+            ]}
+          />
+          <div className="flex flex-col gap-4 mt-4 mb-8">
+            <input
+              className="input-torii"
+              placeholder="Search anime..."
+              value={query}
+              onChange={(e) =>
+                updateParams({
+                  q: e.target.value,
+                  page: 1,
+                })
+              }
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <select
+                className="input-torii"
+                value={type}
+                onChange={(e) =>
+                  updateParams({
+                    type: e.target.value,
+                    page: 1,
+                  })
+                }
+              >
+                <option value="">All Type</option>
+                <option value="tv">TV</option>
+                <option value="movie">Movie</option>
+                <option value="ova">OVA</option>
+                <option value="ona">ONA</option>
+                <option value="special">Special</option>
+              </select>
+
+              <select
+                className="input-torii"
+                value={status}
+                onChange={(e) =>
+                  updateParams({
+                    status: e.target.value,
+                    page: 1,
+                  })
+                }
+              >
+                <option value="">All Status</option>
+                <option value="airing">Airing</option>
+                <option value="complete">Complete</option>
+                <option value="upcoming">Upcoming</option>
+              </select>
+
+              <select
+                className="input-torii"
+                value={rating}
+                onChange={(e) =>
+                  updateParams({
+                    rating: e.target.value,
+                    page: 1,
+                  })
+                }
+              >
+                <option value="">All Rating</option>
+                <option value="g">G</option>
+                <option value="pg">PG</option>
+                <option value="pg13">PG13</option>
+                <option value="r17">R17</option>
+                <option value="r">R</option>
+              </select>
+            </div>
+          </div>
+
+          {anime.length === 0 ? (
+            <div className="text-center py-20">Anime not found</div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {anime.map((item) => (
+                  <AnimeCard key={item.mal_id} anime={item} />
+                ))}
+              </div>
+
+              <div className="flex justify-center gap-3 mt-8">
+                <button
+                  className="btn-torii-outline"
+                  disabled={page <= 1}
+                  onClick={() =>
+                    updateParams({
+                      page: page - 1,
+                    })
+                  }
+                >
+                  Previous
+                </button>
+
+                <span className="flex items-center px-4">Page {page}</span>
+
+                <button
+                  className="btn-torii"
+                  onClick={() =>
+                    updateParams({
+                      page: page + 1,
+                    })
+                  }
+                >
+                  Next
+                </button>
+              </div>
+            </>
+          )}
+        </main>
+      )}
+    </>
   );
 }
