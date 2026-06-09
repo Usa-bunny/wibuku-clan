@@ -7,6 +7,7 @@ import Information from "./_components/Information";
 import Header from "./_components/Header";
 import SubInfo from "./_components/SubInfo";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import Image from "next/image";
 
 export default function AnimeDetails({
   params,
@@ -53,12 +54,12 @@ export default function AnimeDetails({
             ]}
           />
           <div className="grid lg:grid-cols-[300px_1fr] gap-6 p-6 relative">
-            <img
+            <Image
               src={anime.images.webp.large_image_url}
               alt={anime.title}
               width={400}
               height={600}
-              className="w-full rounded-xl object-cover sticky left-0 top-25"
+              className="w-full rounded-xl object-cover lg:sticky lg:left-0 lg:top-25"
             />
 
             <div className="space-y-5">

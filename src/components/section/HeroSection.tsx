@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Motion from "@/components/helper/Motion";
 
 export default function HeroSection() {
