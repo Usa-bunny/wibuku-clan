@@ -31,6 +31,7 @@ export default function RootLayout({
       lang="en"
       className={`${fontBody.variable} ${fontHeading.variable}`}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <body className="bg-layer" suppressHydrationWarning>
         <ReactQueryProvider>{children}</ReactQueryProvider>

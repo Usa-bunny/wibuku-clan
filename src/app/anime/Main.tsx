@@ -6,7 +6,7 @@ import { useMemo } from "react";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 import AnimeCard from "@/components/ui/AnimeCard";
-import { getAnime } from "@/dataservices/Anime";
+import { getAnime, getTopAnime } from "@/dataservices/Anime";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export function AnimePageContent() {
@@ -24,13 +24,10 @@ export function AnimePageContent() {
     () => ({
       q: query || undefined,
       page,
-      limit: 24,
 
       type: type || undefined,
       status: status || undefined,
       rating: rating || undefined,
-
-      sfw: true,
     }),
     [query, page, type, status, rating],
   );
@@ -41,7 +38,7 @@ export function AnimePageContent() {
     isError,
   } = useQuery({
     queryKey: ["Anime", params],
-    queryFn: () => getAnime(params),
+    queryFn: () => getTopAnime(params),
     placeholderData: keepPreviousData,
   });
 
@@ -96,7 +93,7 @@ export function AnimePageContent() {
               }
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <select
                 className="input-torii"
                 value={type}
@@ -148,7 +145,8 @@ export function AnimePageContent() {
                 <option value="r17">R17</option>
                 <option value="r">R</option>
               </select>
-            </div>
+            </div> */}
+            
           </div>
 
           {anime.length === 0 ? (
