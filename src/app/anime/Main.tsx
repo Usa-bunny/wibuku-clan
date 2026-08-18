@@ -61,11 +61,11 @@ export function AnimePageContent() {
   return (
     <>
       {isLoading ? (
-        <div className="max-w-7xl mx-auto px-4 pt-30">
+        <div className="max-w-7xl mx-auto px-4 pt-30 pb-20">
           <div className="card-torii h-125 animate-pulse" />
         </div>
       ) : isError || !anime ? (
-        <div className="max-w-7xl mx-auto px-4 pt-30">
+        <div className="max-w-7xl mx-auto px-4 pt-30 pb-20">
           <div className="card-torii p-6">Failed to load anime.</div>
         </div>
       ) : (

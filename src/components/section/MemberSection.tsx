@@ -20,7 +20,7 @@ export default function MemberSection() {
           {MembersData.slice(0, 5).map((member, index) => (
             <Motion
               key={member.username + index}
-              animation="pop"
+              animation="blur"
               delay={index * 0.05}
             >
               <MemberCard member={member} />

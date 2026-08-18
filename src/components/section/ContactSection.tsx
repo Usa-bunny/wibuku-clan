@@ -24,7 +24,7 @@ export default function ContactSection() {
           {ContactData.map((contact, index) => (
             <Motion
               key={index}
-              animation="pop"
+              animation="skewRight"
               delay={Math.min(index * 0.08, 0.3)}
             > 
               <ContactCard contact={contact} />

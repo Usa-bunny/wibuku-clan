@@ -94,7 +94,7 @@ export default function MemberPage() {
           {visibleMembers.map((member, index) => (
             <Motion
               key={member.username + index}
-              animation="pop"
+              animation="reveal"
               delay={index * 0.05}
             >
               <MemberCard member={member} />

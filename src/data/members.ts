@@ -7,27 +7,32 @@ export const MembersData: MembersType[] = [
     contact: "https://wa.me/6282312713380/",
   },
   {
-    username: "billy [SENPAI]",
+    username: "denia [SENPAI]",
     role: "vice leader",
     contact: "https://wa.me/6282119181501/",
   },
   {
-    username: "lynie [SENPAI]",
+    username: "billy [SENPAI]",
     role: "vice leader",
     contact: "https://wa.me/6281275214641/",
   },
   {
-    username: "ウサギ [SENPAI]",
-    role: "admiral",
-    contact: "https://wa.me/6285126088379/",
+    username: "ricottakawai [SENPAI]",
+    role: "vice leader",
+    contact: "https://wa.me/6281275214641/",
   },
   {
-    "username": "zetvraa [SENPAI]",
+    "username": "usagi",
+    "role": "admiral",
+    "contact": "https://wa.me/6285126088379/"
+  },
+  {
+    "username": "zetvraa",
     "role": "member",
-    "contact": "https://wa.me/6285891040141/"
+    "contact": "https://wa.me/62895891040141/"
   },
   {
-    "username": "jungkyysan [SENPAI]",
+    "username": "jungkyysan//[senpai]",
     "role": "member",
     "contact": "https://wa.me/6283102832824/"
   },
@@ -57,7 +62,7 @@ export const MembersData: MembersType[] = [
     "contact": "https://wa.me/6281360938781/"
   },
   {
-    "username": "Zaa [SENPAI]",
+    "username": "Zaa",
     "role": "member",
     "contact": "https://wa.me/6281241806113/"
   },
@@ -72,22 +77,17 @@ export const MembersData: MembersType[] = [
     "contact": "https://wa.me/qr/IWYYC7453VE7I1"
   },
   {
-    "username": "Royyaaa [SENPAI]",
+    "username": "Royyaaa",
     "role": "member",
     "contact": "https://wa.me/qr/VUCMA3HE4DGQM1"
   },
   {
-    "username": "Kyumar [SENPAI]",
-    "role": "admiral",
-    "contact": ""
-  },
-  {
-    "username": "Kaede chan [SENPAI]",
+    "username": "Kaede chan",
     "role": "member",
     "contact": "https://wa.me/6283870781521/"
   },
   {
-    "username": "Arterpay [SENPAI]",
+    "username": "Arterpay[SENPAI]",
     "role": "officer",
     "contact": "https://wa.me/6288268148666/"
   },
@@ -102,12 +102,12 @@ export const MembersData: MembersType[] = [
     "contact": "https://wa.me/6289510543869/"
   },
   {
-    "username": "Meysannn [SENPAI]",
+    "username": "Meysannn",
     "role": "admiral",
     "contact": "https://wa.me/6281958484902/"
   },
   {
-    "username": "Aio. [SENPAI]",
+    "username": "Aio.",
     "role": "admiral",
     "contact": "https://wa.me/6285134814750/"
   },
@@ -119,17 +119,12 @@ export const MembersData: MembersType[] = [
   {
     "username": "Yukihira [SENPAI]",
     "role": "member",
-    "contact": "https://wa.me/6281230227302/"
+    "contact": "https://wa.me/qr/42GZLR2R322BM1"
   },
   {
-    "username": "Noel Stollen [SENPAI]",
+    "username": "Noel Stollen",
     "role": "member",
     "contact": "https://wa.me/6285364342357/"
-  },
-  {
-    "username": "zah mahiru shina [SENPAI]",
-    "role": "admiral",
-    "contact": ""
   },
   {
     "username": "Pia [SENPAI]",
@@ -144,10 +139,10 @@ export const MembersData: MembersType[] = [
   {
     "username": "Vinzz [SENPAI]",
     "role": "member",
-    "contact": "https://wa.me/6282264801866/"
+    "contact": "https://wa.me/qr/XRTWHDXM2Q2PC1"
   },
   {
-    "username": "Xylo [SENPAI]",
+    "username": "Xylo",
     "role": "member",
     "contact": ""
   },
@@ -160,5 +155,25 @@ export const MembersData: MembersType[] = [
     "username": "Kihh [SENPAI]",
     "role": "member",
     "contact": "https://wa.me/6285842850090/"
+  },
+  {
+    "username": "Mpii [SENPAI]",
+    "role": "member",
+    "contact": ""
+  },
+  {
+    "username": "Vanzz",
+    "role": "member",
+    "contact": "https://wa.me/6283848596472/"
+  },
+  {
+    "username": "Xyoo",
+    "role": "member",
+    "contact": "https://wa.me/6281359985068/"
+  },
+  {
+    "username": "Reyvin [senpai]",
+    "role": "member",
+    "contact": "https://wa.me/6285784614899/"
   }
 ];
