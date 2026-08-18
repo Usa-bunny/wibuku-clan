@@ -18,5 +18,11 @@ export const ContactData: ContactType[] = [
     subtitle: "+62 851-2608-8379",
     icon: "bi-person",
     link: "https://wa.me/6285126088379/",
+  },
+  {
+    title: "Source",
+    subtitle: "github",
+    icon: "bi-github",
+    link: "https://github.com/Usa-bunny/wibuku-clan/",
   }
 ];
